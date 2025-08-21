@@ -2,93 +2,13 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>CLI Puzzle Prototype</title>
-  <style>
-    body {
-      background-color: black;
-      color: #33ff33;
-      font-family: monospace;
-      padding: 20px;
-    }
-    #console {
-      width: 100%;
-      height: 80vh;
-      border: 1px solid #33ff33;
-      padding: 10px;
-      overflow-y: auto;
-      white-space: pre-wrap;
-    }
-    #input-line {
-      display: flex;
-      margin-top: 10px;
-    }
-    #prompt {
-      margin-right: 5px;
-    }
-    #command {
-      flex-grow: 1;
-      background: black;
-      border: none;
-      outline: none;
-      color: #33ff33;
-      font-family: monospace;
-    }
-  </style>
+  <title>CLI Puzzle</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="console"></div>
-  <div id="input-line">
-    <span id="prompt">&gt;</span>
-    <input type="text" id="command" autofocus>
-  </div>
-
-  <script>
-    const consoleEl = document.getElementById("console");
-    const commandEl = document.getElementById("command");
-
-    // パスワードと紐付けるファイル（またはヒント）
-    const passwordFiles = {
-      "alpha": "ファイル001.txt\n---\n旧研究所の地下に隠された部屋の鍵を見つけた。",
-      "beta": "ファイル002.txt\n---\n電脳世界の奥に、さらなるゲートが存在する。",
-      "gamma": "ファイル003.txt\n---\n裏切り者はすでに仲間内にいる。",
-      "omega": "ファイル004.txt\n---\nこれは最終警告だ。進むなら覚悟を決めろ。"
-    };
-
-    // タイプライター風表示
-    function typeWriter(text, callback, i = 0) {
-      if (i < text.length) {
-        consoleEl.innerHTML += text.charAt(i);
-        consoleEl.scrollTop = consoleEl.scrollHeight;
-        setTimeout(() => typeWriter(text, callback, i + 1), 30);
-      } else {
-        if (callback) callback();
-      }
-    }
-
-    function runCommand(input) {
-      const command = input.trim();
-      consoleEl.innerHTML += "\n> " + command + "\n";
-
-      if (passwordFiles[command]) {
-        typeWriter(passwordFiles[command] + "\n", null);
-      } else if (command === "help") {
-        typeWriter("利用可能なコマンド: help, clear, (パスワード入力)\n", null);
-      } else if (command === "clear") {
-        consoleEl.innerHTML = "";
-      } else {
-        typeWriter("エラー: 不明なコマンドまたはパスワード\n", null);
-      }
-    }
-
-    commandEl.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        runCommand(commandEl.value);
-        commandEl.value = "";
-      }
-    });
-
-    // 初期メッセージ
-    typeWriter("システム起動完了...\nパスワードを入力してください。\n", null);
-  </script>
+  <div id="terminal"></div>
+  <input type="text" id="commandInput" placeholder="> Enter command" autofocus />
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
