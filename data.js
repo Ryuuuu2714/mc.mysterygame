@@ -5,4 +5,5 @@ const COMMANDS = {
   "password123": "認証成功: ようこそ、システムへ",
   "decode": "暗号文: VGhpcyBpcyBhIHRlc3Q=",
   "exit": "セッションを終了しました。"
+  "git": "https://github.com/"
 };
