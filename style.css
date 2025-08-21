@@ -1,0 +1,23 @@
+body {
+  background-color: black;
+  color: #00ff00;
+  font-family: monospace;
+  margin: 0;
+  padding: 20px;
+}
+
+#terminal {
+  white-space: pre-wrap;
+  min-height: 400px;
+  margin-bottom: 10px;
+}
+
+#commandInput {
+  width: 100%;
+  background: black;
+  color: #00ff00;
+  border: none;
+  font-family: monospace;
+  font-size: 16px;
+  outline: none;
+}
