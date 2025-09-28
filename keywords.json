@@ -62,6 +62,12 @@
       { "label": "エンドカード", "href": "logs/ending_01.pdf"}
     ]
   },
+  "NO": {
+    "text": "\nSystem: Authentication Denied.\n\n...あらそう。勘がいいのね。\n...それじゃあ残念だけどここでお別れよ。\n別の標的を探すとするわ。\nここまでありがとう。——————{PLAYER_NAME}さん。\n",
+    "links":[
+      { "label": "エンドカード", "href": "logs/ending_00.pdf"}
+    ]
+  },
 
   "756e7a6970": {
     "text": "\nSystem: 以下のファイルが解放されました。\n",
